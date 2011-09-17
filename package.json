@@ -2,7 +2,8 @@
 	  "name": "pinhub"
 	, "version": "0.1.0"
 	, "dependencies":
-		{ "express": "2.4.6"
+		{ "coffee-script": "1.1.2"
+		, "express": "2.4.6"
 		, "mongoose": "2.0.0"
 		}
 	, "private": true
