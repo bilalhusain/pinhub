@@ -13,7 +13,13 @@ pinSchema.statics.getPin = (pin, callback) ->
 
 pinSchema.statics.searchAddress = (address, callback) ->
 	return callback([{error: 'too much information (irony mark here)'}]) if address.length < 3
-	this.find {address: new RegExp(address, 'i') }, [], {limit: 10}, (err, ps) ->
+	r = '.*'
+	try
+		r = new RegExp(address, 'i')
+	catch e
+		return callback([{error: 'something went wrong, try a variant of the address'}])
+	
+	this.find {address: r }, [], {limit: 10}, (err, ps) ->
 		return callback([{error: 'not found'}]) if err or not ps
 		callback(ps)
 
