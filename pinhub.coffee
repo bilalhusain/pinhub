@@ -20,6 +20,7 @@ app.get '/seed', (req, res) ->
 		res.send 'seeded'
 
 require('./app/routes/pin')(app)
+require('./app/routes/search')(app)
 
 app.listen APP_PORT
 
